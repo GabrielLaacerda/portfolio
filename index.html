@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Seu Nome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Rx1mgT5r9pDEq5Wq64YBNSwT1L1N7+vJkFJxPGbD7jB9HsnFo9HgAtYj7P3vAZE9L3tJ1jryH5pRBeOwqLWrBQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    :root {
+      --background: #282a36;
+      --current-line: #44475a;
+      --foreground: #f8f8f2;
+      --comment: #6272a4;
+      --cyan: #8be9fd;
+      --green: #50fa7b;
+      --orange: #ffb86c;
+      --pink: #ff79c6;
+      --purple: #bd93f9;
+      --red: #ff5555;
+      --yellow: #f1fa8c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--foreground);
+      text-shadow: 0 0 10px var(--pink);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--yellow);
+      margin-top: 0.5rem;
+    }
+
+    main {
+      flex: 1;
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 2rem;
+      background-color: var(--current-line);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--cyan);
+      border-bottom: 2px solid var(--purple);
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--yellow);
+    }
+
+    .contact i {
+      margin-right: 0.5rem;
+    }
+
+    .music {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .music iframe {
+      border-radius: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--comment);
+      background-color: var(--current-line);
+    }
+
+    .nav-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--current-line);
+      border-top: 1px solid var(--comment);
+      padding: 0.75rem 0;
+    }
+
+    .nav-bottom button {
+      background: none;
+      border: none;
+      color: var(--comment);
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .nav-bottom button.active {
+      color: var(--pink);
+    }
+
+
+    .links {
+      display: flex;
+      /* Alinha os links horizontalmente */
+      gap: 20px;
+      /* Espaçamento entre os links */
+    }
+
+    .links a {
+      text-decoration: none;
+      /* Remove o sublinhado */
+    }
+
+    li {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      /* Linha escura, mas quase invisível */
+      padding-bottom: 10px;
+      /* Adiciona um pouco de espaço abaixo */
+      margin-bottom: 10px;
+      /* Adiciona espaço entre os itens */
+    }
+
+    .sobre-mim {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .foto-perfil {
+      border-radius: 50%;
+      width: 150px;
+      /* Tamanho da imagem */
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .informacoes {
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gabriel Vinícius Ramos de Lacerda</h1>
+    <p>Analista e Desenvolvedor de Sistemas <i class="fa-solid fa-code"></i></p>
+  </header>
+
+  <main>
+    <section id="inicio" class="active">
+      <h2><i class="fas fa-user"></i> Sobre Mim</h2>
+
+    <div class="sobre-mim" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; padding: 20px 0;">
+      <img src="C:\Users\Gabriel\Downloads\perfil.jpeg" alt="Foto de Gabriel" class="foto-perfil" style="max-width: 180px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+      <div class="informacoes" style="flex: 1; min-width: 250px;">
+        <p style="margin-bottom: 12px;">
+          Atualmente atuo como <strong>Analista de Sistemas</strong>, com experiência na garantia da operação eficiente e ininterrupta de processos automatizados em ambientes <strong>Linux</strong> e <strong>Windows</strong>.
+        </p>
+
+        <p>
+          Tenho grande interesse nas áreas de <strong>desenvolvimento de software</strong> e <strong>administração de bancos de dados</strong>, e estou sempre em busca de novos desafios que me permitam aplicar meus conhecimentos e crescer profissionalmente.
+        </p>
+      </div>
+    </div>
+    </section>
+
+    <section id="objetivo">
+      <h2><i class="fas fa-bullseye"></i> Objetivo</h2>
+    
+      <p style="margin-bottom: 16px;">
+        Estou sempre antenado em novas tecnologias e em busca de desafios que estimulem meu crescimento profissional. 
+        Atualmente, meu objetivo é conquistar uma posição como <strong>Desenvolvedor de Sistemas</strong>, onde eu possa aplicar e expandir meus conhecimentos em soluções modernas e eficientes.
+      </p>
+    
+      <p style="margin-bottom: 10px;">Minhas principais áreas de interesse incluem:</p>
+      <ul">
+        <li><i class="fas fa-code"></i> <strong>Desenvolvimento Back-end:</strong> Node.js, PHP, Flask</li>
+        <li><i class="fas fa-database"></i> <strong>Gerenciamento de Banco de Dados:</strong> MySQL, PostgreSQL</li>
+        <li><i class="fas fa-desktop"></i> <strong>Desenvolvimento Front-end:</strong> JavaScript, Bootstrap, React</li>
+      </ul>
+    </section>
+
+    <section id="cargo">
+      <h2><i class="fas fa-briefcase"></i> Cargo Atual</h2>
+      <p><strong>Kyros Tecnologia</strong> | Analista de Sistemas</p>
+      <p><strong>Tempo:</strong> Ago de 2023 - o momento</p>
+      <p><strong>Localização:</strong> Uberlândia, Minas Gerais, Brasil - Remoto</p>
+      <br>
+      <h3>Responsabilidades:</h3>
+      <ul>
+        <li>Analisar, monitorar e gerenciar processos em servidores Linux/Windows para garantir o bom funcionamento dos
+          processos automáticos.</li>
+        <li>Tratar de forma proativa eventuais problemas relacionados a processos automáticos para minimizar o tempo de
+          inatividade.</li>
+        <li>Entrar em contato diretamente com terceiros para solucionar problemas sob demanda, garantindo uma
+          comunicação clara e eficiente.</li>
+        <li>Elaboração de scripts para automatização de tarefas repetitivas do cotidiano, com o intuito de aumentar a
+          eficiência.</li>
+        <li>Atualmente atuando também como <strong>desenvolvedor full stack</strong> para desenvolvimento de uma
+          aplicação web utilizando python, flet, postgree e docker. </li>
+      </ul>
+    </section>
+
+
+    <section id="formacao">
+      <h2><i class="fas fa-graduation-cap"></i> Formação Profissional</h2>
+      <ul>
+        <li>
+          <strong>Bacharelado em Sistemas de Informação</strong> - Universidade Federal de Uberlândia
+          <br>
+          <small>2019 - 2025</small>
+          <p><i class="fas fa-building"></i> Campus Monte Carmelo</p>
+          <p>Durante o curso desenvolvi um gosto muito grande pelo desenvolvimento de sistemas principalmente a nível de
+            back-end e gerenciamento de banco e dados.
+            Participei de diversos projetos ao longo da minha graduação, os quais me prepararam para o mercado de
+            trabalho.
+
+            Veja abaixo alguns dos principais projetos que desenvolvi ao longo da minha jornada acadêmica.
+          </p>
+          <div class="links">
+            <a href="https://github.com/GabrielLaacerda/ai-text-in-social-networks" target="_blank"><i
+                class="fas fa-link"></i> Projeto de TCC</a>
+            <a href="https://github.com/GabrielLaacerda/Chord-s-Music" target="_blank"><i class="fas fa-link"></i>
+              Sistema de Cifras para Violão</a>
+            <a href="https://github.com/GabrielLaacerda/Xiloteca" target="_blank"><i class="fas fa-link"></i> Xiloteca
+              para Coleção Botânica de Amostras de Madeira</a>
+          </div>
+        </li>
+        <li>
+          <strong>PETIANO</strong> - Universidade Federal de Uberlândia
+          <br>
+          <small>2020 - 2021</small>
+          <p><i class="fas fa-certificate"></i> O PETSIMC visa promover a pesquisa, ensino e extensão universitária no
+            nível de graduação de forma coletiva e interdisciplinar, com projetos de iniciação científica em áreas
+            como banco de dados e reconhecimento facial. Também realiza projetos de extensão para aproximar a população
+            de tecnologia, como robótica para alunos do ensino médio e inclusão digital para idosos, além de oferecer
+            suporte a estudantes com dificuldades acadêmicas, trabalhando em equipe para alcançar objetivos comuns. <br>
+            <span style="font-size:14px"">- Certificado de Conclusão disponível (não disponível online)</span> </p>
+        </li>
+        <li>
+          <strong>Monitor</strong> - Universidade Federal de Uberlândia
+          <br>
+          <small>2020 & 2021</small>
+          <p><i class=" fa-solid fa-laptop"></i> Atuei por dois semestres como monitor da disciplina de Estrutura de
+              Dados utilizando linguagem C.<br> <span style="font-size:14px"">- Certificado de Conclusão disponível (não disponível online)</span></p>
+          
+        </li>
+      </ul>
+    </section>
+    
+
+    <section id=" habilidades">
+                <h2><i class="fas fa-code"></i> Habilidades</h2>
+                <ul>
+                  <li>HTML5, CSS3, JavaScript ES6+</li>
+                  <li>React, Git, Figma</li>
+                  <li>Boas práticas de UI/UX e acessibilidade</li>
+                </ul>
+    </section>
+
+    <section id="contato" class="contact">
+      <h2><i class="fas fa-envelope"></i> Contato</h2>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:gabrielvrlacerda@gmail.com">gabrielvrlacerda@gmail.com</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/gabriel-vinicius-lacerda/"
+          target="_blank">https://www.linkedin.com/in/gabriel-vinicius-lacerda/</a></p>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/GabrielLaacerda" target="_blank">https://github.com/GabrielLaacerda</a>
+      </p>
+      <p><i class="fas fa-phone"></i>(34)9 9163-5258</p>
+    </section>
+  </main>
+
+  <nav class="nav-bottom">
+    <button class="active" onclick="showSection('inicio', this)"><i
+        class="fa-solid fa-house"></i><span>Início</span></button>
+    <button onclick="showSection('objetivo', this)"><i class="fas fa-bullseye"></i><span>Objetivo</span></button>
+    <button onclick="showSection('cargo', this)"><i class="fas fa-briefcase"></i><span>Cargo</span></button>
+    <button onclick="showSection('formacao', this)"><i class="fas fa-graduation-cap"></i><span>Formação</span></button>
+    <button onclick="showSection('habilidades', this)"><i class="fas fa-code"></i><span>Habilidades</span></button>
+    <button onclick="showSection('contato', this)"><i class="fas fa-envelope"></i><span>Contato</span></button>
+  </nav>
+
+  <footer>
+    &copy; 2025 Seu Nome. Feito com <i class="fas fa-heart"></i> e muita música.
+  </footer>
+
+  <script>
+    function showSection(id, btn) {
+      document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.nav-bottom button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+  <script>
+    function showSection(id, btn) {
+      // Muda as seções ativas
+      document.querySelectorAll('main section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      // Atualiza a URL para refletir a seção selecionada
+      history.pushState({ section: id }, '', `#${id}`);
+
+      // Marca o botão ativo na barra de navegação
+      document.querySelectorAll('.nav-bottom button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Carregar a seção correspondente ao hash na URL
+    window.addEventListener('load', () => {
+      const sectionId = window.location.hash.replace('#', '') || 'inicio';
+      const sectionButton = document.querySelector(`.nav-bottom button[onclick="showSection('${sectionId}', this)"]`);
+      if (sectionId) {
+        showSection(sectionId, sectionButton);
+      }
+    });
+
+    // Ouvir mudanças no histórico de navegação (usando o botão de volta ou avançar do navegador)
+    window.addEventListener('popstate', (event) => {
+      if (event.state && event.state.section) {
+        showSection(event.state.section, document.querySelector(`.nav-bottom button[onclick="showSection('${event.state.section}', this)"]`));
+      }
+    });
+  </script>
+
+</body>
+
+</html>
